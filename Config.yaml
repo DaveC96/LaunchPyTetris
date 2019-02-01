@@ -1,0 +1,37 @@
+
+hardware:
+  midiport    : "Launchpad Pro Standalone Port"
+  midichannel : 0
+
+uilocations:
+  left    : 06
+  down    : 07
+  right   : 08
+  rotate  : 01
+  hint1   : 94
+  hint2   : 95
+
+colours:
+  red     : 0
+  blue    : 20
+  yellow  : 2
+  orange  : 3
+  purple  : 4
+  green   : 5
+  cyan    : 6
+
+shapes:
+  i:
+    colour  : cyan
+  j:
+    colour  : blue
+  l:
+    colour  : orange
+  o:
+    colour  : yellow
+  s:
+    colour  : green
+  t:
+    colour  : purple
+  z:
+    colour  : red
