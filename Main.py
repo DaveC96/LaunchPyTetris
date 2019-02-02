@@ -17,6 +17,11 @@ shapetemplates = [
     Shapes.Shape(cfg["colours"]["red"], [111, 121, 122, 132])  # Z
 ]
 
+board_model = [[],[],[],[],[],[],[],[]]
+for i in range(8):
+    for j in range(8):
+        board_model[i].append(00)
+
 a = shapetemplates[5]
 
 def __main__():
@@ -30,15 +35,26 @@ def __main__():
 
     b = ButtonHandler.ButtonHandler(lp, uicallbacks)
     b.start()
+    print(board_model)
 
 def update_board(a):
     print("-BOARD UPDATE-\t\tclearing: "+str(a.last)+"\t\tdrawing: "+str(a.location))
     for i in a.last:
         lp.draw_px(i, 0)
         # l.draw_board(0)
+        board_model[int(str(i)[0])][int(str(i)[1])] = 0
 
     for i in a.location:
+        print("x: " + str(i)[1] + " y: " + str(i)[0])
         lp.draw_px(i, a.colour)
+        board_model[int(str(i)[1])][int(str(i)[0])] = a.colour
+        for i in range(len(board_model)):
+            print(board_model[i])
+
+
+    print(board_model)
+
+
 
 def ui_flip():
     print("Flip")
