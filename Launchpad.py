@@ -1,4 +1,4 @@
-import mido, yaml
+import mido, yaml, threading
 
 
 class Launchpad:
@@ -6,6 +6,7 @@ class Launchpad:
         self.cfg = yaml.load(open("Config.yaml"))
 
         self.mOut = mido.open_output(self.cfg["hardware"]["midiport"])
+        self.mIn  = mido.open_input(self.cfg["hardware"]["midiport"])
         self.mChl = self.cfg["hardware"]["midichannel"]
         self.board = {"height": 8, "width": 8}
 
@@ -26,4 +27,8 @@ class Launchpad:
         for i in self.cfg["uilocations"]:
             print("drawing to "+str(self.cfg["uilocations"][i]))
             self.draw_px(int(self.cfg["uilocations"][i]), self.cfg["colours"]["cyan"])
+
+
+
+
 

@@ -1,9 +1,14 @@
 import time
+
+
+
 class Shape:
     def __init__(self, colour, location):
         self.colour = colour
         self.location = location
-        self.last = [None, None, None, None]
+        self.last = []
+        for i in range(len(self.location)):
+            self.last.append(self.location[i])
 
     def move_down(self):
         if not any(i < 19 for i in self.location):

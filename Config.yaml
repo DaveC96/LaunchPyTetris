@@ -12,7 +12,7 @@ uilocations:
   hint2   : 95
 
 colours:
-  red     : 0
+  red     : 80
   blue    : 20
   yellow  : 2
   orange  : 3
