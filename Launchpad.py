@@ -4,6 +4,7 @@ import mido, yaml, threading
 class Launchpad:
     def __init__(self):
         self.cfg = yaml.load(open("Config.yaml"))
+        self.introAnim = mido.MidiFile("intro.mid")
 
         self.mOut = mido.open_output(self.cfg["hardware"]["midiport"])
         self.mIn  = mido.open_input(self.cfg["hardware"]["midiport"])

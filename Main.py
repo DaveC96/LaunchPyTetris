@@ -17,9 +17,10 @@ shapetemplates = [
     Shapes.Shape(cfg["colours"]["red"], [111, 121, 122, 132])  # Z
 ]
 
-a = shapetemplates[5]
+a = shapetemplates[3]
 
 def __main__():
+    intro()
     # for a in shapetemplates:
     #     for i in range(15):
     #         a.move_right()
@@ -30,6 +31,7 @@ def __main__():
 
     b = ButtonHandler.ButtonHandler(lp, uicallbacks)
     b.start()
+
 
 def update_board(a):
     print("-BOARD UPDATE-\t\tclearing: "+str(a.last)+"\t\tdrawing: "+str(a.location))
@@ -64,5 +66,13 @@ uicallbacks = {
     7:ui_down,
     8:ui_right
 }
+
+def intro():
+    for msg in lp.introAnim:
+        time.sleep(msg.time/4)
+        if not msg.is_meta:
+            lp.mOut.send(msg)
+
+
 
 __main__()
